@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:component-scan base-package="com.xunlei.netty" />
+    <context:component-scan base-package="com.dataeye.omp" />
+ 
+
+    <!-- 读入配置文件,扩展支持Annotation -->
+    <context:component-scan base-package="com.xunlei.spring" />
+    <!-- http://doc.itstrike.cn/Home/Article/Extension-Spring-use-the-Annotation-will-be-injected-into-the-Bean-in-the-allocation-of-resources -->
+    <bean id="propertyConfigurer" class="com.xunlei.spring.ExtendedPropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>/serverconfig.properties</value> 
+                 <value>/datasource.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- mail template for alarm -->
+	<bean id="mailTemplateAlarm" class="com.xunlei.springutil.MailTemplate">
+		<constructor-arg ref="mailSenderAlarm" />
+		<constructor-arg value="dataalarm@dataeye.com" />
+		<property name="fromName" value="DataEye监控告警平台" />
+		<property name="maxRetryTime" value="2" />
+		<property name="retryIdle" value="2000" />
+	</bean>
+	<bean id="mailSenderAlarm" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.exmail.qq.com" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.timeout">25000</prop>
+			</props>
+		</property>
+		<property name="username" value="dataalarm@dataeye.com" />
+		<property name="password" value="dataeye@2016" />
+	</bean>
+    <import resource="jdbcContext.xml" />
+</beans>

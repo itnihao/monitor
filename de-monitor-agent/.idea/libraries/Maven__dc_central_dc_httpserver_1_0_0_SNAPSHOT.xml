@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: dc-central:dc-httpserver:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/dc-central/dc-httpserver/1.0.0-SNAPSHOT/dc-httpserver-1.0.0-20150811.061959-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/dc-central/dc-httpserver/1.0.0-SNAPSHOT/dc-httpserver-1.0.0-20150811.061959-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/dc-central/dc-httpserver/1.0.0-SNAPSHOT/dc-httpserver-1.0.0-20150811.061959-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

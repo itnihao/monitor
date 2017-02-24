@@ -1,0 +1,7 @@
+jdbc_url_monitor=jdbc:mysql://10.1.2.195:3306/de_monitor?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+jdbc_user_monitor=root
+jdbc_password_monitor=
+
+jdbc_url_monitor_stat=jdbc:mysql://10.1.2.195:3306/de_monitor_stat?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+jdbc_user_monitor_stat=root
+jdbc_password_monitor_stat=

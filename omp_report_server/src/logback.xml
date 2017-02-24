@@ -1,0 +1,115 @@
+<configuration>
+
+  <property name="HOME_PATH" value="logs/logs" scope="CONTEXT" />
+  <property name="DEFAULT_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%file:%line] [%level] %msg%n" scope="CONTEXT" />
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+    </encoder>
+  </appender>
+
+
+  <appender name="process_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/processLog-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="server_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/serverLog-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="monitor_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/monitorLog-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="kafka_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/kafkaLog-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="mysql_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/mysqlLog-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="hbase_client_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/hbaseLog-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+
+  <appender name="agenterror_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/agenterror_log-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="agenterror_log"  level="INFO" additivity="false">
+    <appender-ref ref="agenterror_log" />
+  </logger>
+
+
+  <logger name="process_log"  level="INFO" additivity="false">
+    <appender-ref ref="process_log" />
+  </logger>
+
+  <logger name="monitor_log"  level="INFO" additivity="false">
+    <appender-ref ref="monitor_log" />
+  </logger>
+
+  <logger name="server_log"  level="INFO" additivity="false">
+    <appender-ref ref="server_log" />
+  </logger>
+
+  <logger name="mysql_log"  level="INFO" additivity="false">
+    <appender-ref ref="mysql_log" />
+  </logger>
+
+  <logger name="kafka_log"  level="INFO" additivity="false">
+    <appender-ref ref="kafka_log" />
+  </logger>
+  <logger name="hbase_client_log"  level="INFO" additivity="false">
+    <appender-ref ref="hbase_client_log" />
+  </logger>
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+</configuration> 

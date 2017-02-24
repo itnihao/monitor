@@ -1,0 +1,7 @@
+zookeeper.connect=vm7:12181,vm8:12181,vm13:12181
+group.id=customMonitorGroup2
+zookeeper.session.timeout.ms=2000
+zookeeper.connection.timeout.ms=15000
+zookeeper.sync.time.ms=200
+auto.commit.interval.ms=1000
+kafka.custom.monitor.topic=customMonitorTopic

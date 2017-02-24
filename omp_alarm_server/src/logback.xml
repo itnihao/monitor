@@ -1,0 +1,94 @@
+<configuration>
+
+  <property name="HOME_PATH" value="logs/logs" scope="CONTEXT" />
+  <property name="DEFAULT_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%file:%line] [%level] %msg%n" scope="CONTEXT" />
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+    </encoder>
+  </appender>
+  <appender name="server_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/serverLog-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="kafka_Log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/kafka_Log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="mysql_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/mysql_log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+
+
+  <appender name="process_Log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/process_Log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="exception_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/exception_log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="custom_Log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/custom_Log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <maxHistory>240</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+  <logger name="server_log"  level="INFO" additivity="false">
+    <appender-ref ref="server_log" />
+  </logger>
+  <logger name="kafka_Log"  level="INFO" additivity="false">
+    <appender-ref ref="kafka_Log" />
+  </logger>
+  <logger name="process_Log"  level="INFO" additivity="false">
+    <appender-ref ref="process_Log" />
+  </logger>
+
+  <logger name="mysql_log"  level="INFO" additivity="false">
+    <appender-ref ref="mysql_log" />
+  </logger>
+
+  <logger name="exception_log"  level="INFO" additivity="false">
+    <appender-ref ref="exception_log" />
+  </logger>
+  <logger name="custom_Log"  level="INFO" additivity="false">
+    <appender-ref ref="custom_Log" />
+  </logger>
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+</configuration> 

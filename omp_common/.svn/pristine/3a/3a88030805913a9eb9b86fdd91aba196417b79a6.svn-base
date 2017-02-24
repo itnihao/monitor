@@ -1,0 +1,4 @@
+token_subject=Token\u9a8c\u8bc1
+sso_check_url=http://119.147.212.252:38082/alarm/mail
+alarm_email=chenfanglin@dataeye.com
+alarm_subject=\u7cfb\u7edf\u544a\u8b66\u90ae\u4ef6

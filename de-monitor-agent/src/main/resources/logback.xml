@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <property name="HOME_PATH" value="logs/logs" scope="CONTEXT" />
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%file:%line] [%level] %msg%n</pattern>
+    </encoder>
+  </appender>
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+  <appender name="agent_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/agent_log-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%file:%line] [%level] %msg%n</Pattern>
+    </layout>
+  </appender>
+
+  <logger name="agent_log"  level="INFO" additivity="false">
+    <appender-ref ref="agent_log" />
+  </logger>
+
+
+  <appender name="test_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${HOME_PATH}/test_log-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%file:%line] [%level] %msg%n</Pattern>
+    </layout>
+  </appender>
+
+  <logger name="test_log"  level="INFO" additivity="false">
+    <appender-ref ref="test_log" />
+  </logger>
+
+
+</configuration>

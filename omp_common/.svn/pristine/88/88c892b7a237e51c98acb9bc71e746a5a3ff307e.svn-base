@@ -1,0 +1,3 @@
+jdbc_url_dc_global=jdbc:mysql://10.1.2.208:3306/dc_global?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+jdbc_user_dc_global=dbuser
+jdbc_password_dc_global=user#2013!

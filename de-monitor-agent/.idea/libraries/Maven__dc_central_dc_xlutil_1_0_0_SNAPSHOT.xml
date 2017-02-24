@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: dc-central:dc-xlutil:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/dc-central/dc-xlutil/1.0.0-SNAPSHOT/dc-xlutil-1.0.0-20150523.023547-4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/dc-central/dc-xlutil/1.0.0-SNAPSHOT/dc-xlutil-1.0.0-20150523.023547-4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/dc-central/dc-xlutil/1.0.0-SNAPSHOT/dc-xlutil-1.0.0-20150523.023547-4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
