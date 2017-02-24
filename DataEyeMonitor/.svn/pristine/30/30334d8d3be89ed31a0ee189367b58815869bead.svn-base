@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- datasource.properties 用于 配置 jdbcContext.xml里面的占位符 -->
+	<bean id="propertyConfigurer" class="com.xunlei.spring.ExtendedPropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/datasource.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!--用于读取模板的bean -->
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="WEB-INF/classes/vm/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="output.encoding">utf-8</prop>
+				<prop key="input.encoding">utf-8</prop>
+			</props>
+		</property>
+	</bean>
+	<import resource="classpath:config/jdbcContext.xml" />
+</beans> 

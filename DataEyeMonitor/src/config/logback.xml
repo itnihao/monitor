@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 供DELogger.getLogger方法使用的默认配置项 -->
+	<property name="HOME_PATH" value="E:/monitoring/" scope="CONTEXT" />
+	<property name="DEFAULT_PATTERN" value="%d{HH:mm:ss}->%m%n"
+		scope="CONTEXT" />
+	<!-- property name="DEFAULT_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} 
+		[%file:%line] [%level] %msg%n" scope="CONTEXT" / -->
+	<!-- 设置控制台日志输出格式 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="runningLog"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${HOME_PATH}logs/running-%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss}|%m%n</Pattern>
+		</layout>
+	</appender>
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="runningLog" />
+	</root>
+</configuration>
